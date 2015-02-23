@@ -1,6 +1,4 @@
-SUBDIRS = actions status
-
-Datadir = $(datadir)/icons/hicolor/22x22/status
+Datadir = $(datadir)/icons/hicolor/22x22
 
 Data_DATA =				\
 	xfpm-ac-adapter.png		\

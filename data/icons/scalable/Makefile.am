@@ -1,6 +1,4 @@
-SUBDIRS = actions status
-
-Datadir = $(datadir)/icons/hicolor/scalable/status
+Datadir = $(datadir)/icons/hicolor/scalable
 
 Data_DATA =				\
 	xfpm-ac-adapter.svg		\

@@ -1,6 +1,4 @@
-SUBDIRS = actions status
-
-Datadir = $(datadir)/icons/hicolor/48x48/status
+Datadir = $(datadir)/icons/hicolor/48x48
 
 Data_DATA =				\
 	computer.png			\

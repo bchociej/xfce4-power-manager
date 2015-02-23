@@ -1,7 +1,7 @@
 EXTRA_DIST =				\
 	$(Data_DATA)
 
-Datadir = $(datadir)/icons/hicolor/32x32/status
+Datadir = $(datadir)/icons/hicolor/32x32
 
 Data_DATA =				\
 	computer.png			\

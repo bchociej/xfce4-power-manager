@@ -538,6 +538,18 @@ xfpm_power_suspend_cb (XfpmPower *power)
 }
 
 static void
+xfpm_power_normal_mode_cb (XfpmPower *power)
+{
+	xfpm_power_change_presentation_mode(power, FALSE);
+}
+
+static void
+xfpm_power_presentation_mode_cb (XfpmPower *power)
+{
+	xfpm_power_change_presentation_mode(power, TRUE);
+}
+
+static void
 xfpm_power_hibernate_clicked (XfpmPower *power)
 {
     gtk_widget_destroy (power->priv->dialog );
@@ -582,42 +594,6 @@ xfpm_power_tray_exit_activated_cb (gpointer data)
     {
 	xfpm_quit ();
     }
-}
-
-
-static void
-xfpm_power_change_mode (XfpmPower *power, XfpmPowerMode mode)
-{
-#ifdef HAVE_DPMS
-    XfpmDpms *dpms;
-
-    power->priv->power_mode = mode;
-
-    dpms = xfpm_dpms_new ();
-    xfpm_dpms_refresh (dpms);
-    g_object_unref (dpms);
-
-    if (mode == XFPM_POWER_MODE_NORMAL)
-    {
-	EggIdletime *idletime;
-	idletime = egg_idletime_new ();
-	egg_idletime_alarm_reset_all (idletime);
-
-	g_object_unref (idletime);
-    }
-#endif
-}
-
-static void
-xfpm_power_normal_mode_cb (XfpmPower *power)
-{
-    xfpm_power_change_mode (power, XFPM_POWER_MODE_NORMAL);
-}
-
-static void
-xfpm_power_presentation_mode_cb (XfpmPower *power)
-{
-    xfpm_power_change_mode (power, XFPM_POWER_MODE_PRESENTATION);
 }
 
 static void
@@ -717,7 +693,7 @@ xfpm_power_show_tray_menu (XfpmPower *power,
 
     /* Normal*/
     mi = gtk_check_menu_item_new_with_label (_("Normal"));
-    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mi), power->priv->power_mode == XFPM_POWER_MODE_NORMAL);
+    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mi), power->priv->presentation_mode == FALSE);
     gtk_widget_set_sensitive (mi,TRUE);
 
     g_signal_connect_swapped (mi, "activate",
@@ -727,7 +703,7 @@ xfpm_power_show_tray_menu (XfpmPower *power,
 
     /* Normal*/
     mi = gtk_check_menu_item_new_with_label (_("Presentation"));
-    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mi), power->priv->power_mode == XFPM_POWER_MODE_PRESENTATION);
+    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mi), power->priv->presentation_mode == TRUE);
     gtk_widget_set_sensitive (mi, TRUE);
 
     g_signal_connect_swapped (mi, "activate",

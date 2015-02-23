@@ -30,6 +30,7 @@ G_BEGIN_DECLS
 #define XFPM_MOUSE_ICON				"input-mouse"
 #define XFPM_PHONE_ICON				"phone"
 #define XFPM_PDA_ICON				"pda"
+#define XFPM_BATTERY_ICON			"battery"
 
 #define XFPM_PRIMARY_ICON_PREFIX		"xfpm-primary-"
 #define XFPM_UPS_ICON_PREFIX			"xfpm-ups-"
@@ -41,6 +42,9 @@ G_BEGIN_DECLS
 #define XFPM_MONITOR_PREFIX             "video-display"
 #define XFPM_COMPUTER_ICON_PREFIX       "computer"
 #define XFPM_TABLET_ICON_PREFIX         "tablet"
+
+#define XFPM_HIBERNATE_ICON                    "xfpm-hibernate"
+#define XFPM_SUSPEND_ICON                      "xfpm-suspend"
 
 #define XFPM_DISPLAY_BRIGHTNESS_ICON	        "xfpm-brightness-lcd"
 #define XFPM_DISPLAY_BRIGHTNESS_INVALID_ICON	"xfpm-brightness-lcd-missing" /* When no hw found */

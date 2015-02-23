@@ -1348,7 +1348,8 @@ xfpm_settings_general (XfconfChannel *channel, gboolean auth_suspend,
      */
     val = xfconf_channel_get_bool (channel, PROPERTIES_PREFIX DPMS_ENABLED_CFG, TRUE);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(dpms), val);
-
+#endif
+	
     /*
      * Power button
      */
