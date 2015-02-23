@@ -9,6 +9,12 @@ difficult to integrate but perhaps I will try.
 
 -bchociej
 
+P.S. to build, something like this would do (fiddle with flags as you like):
+
+$ ./autogen.sh --prefix=/usr --disable-static --enable-network-manager --enable-polkit --disable-debug
+$ make
+$ make install
+
 Original README follows...
 
 What is it?
