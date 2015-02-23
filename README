@@ -1,9 +1,22 @@
+This software is a fork of xfce4-power-manager for the Xfce desktop in which I have restored the tray
+icon functionality from 1.2.0 and earlier.
+
+I accomplished this through reverting relevant changes and blindly debugging the fallout, so BE
+WARNED, this software (this fork) may do bad things.
+
+As far as I can tell, everything should work like it used to for now. Future changes may be more
+difficult to integrate but perhaps I will try.
+
+-bchociej
+
+Original README follows...
+
 What is it?
 ===========
 
-This software is a power manager for the Xfce desktop, Xfce power manager manages the power sources 
-on the computer and the devices that can be controlled to reduce their power consumption 
-(such as LCD brightness level, monitor sleep). 
+Xfce power manager manages the power sources on the computer and the devices that can be controlled
+to reduce their power consumption (such as LCD brightness level, monitor sleep). 
+
 In addition, xfce4-power-manager provides a set of freedesktop-compliant DBus interfaces to 
 inform other applications about current power level so that they can adjust their power consumption.
 
