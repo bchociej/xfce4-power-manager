@@ -1,5 +1,4 @@
-EXTRA_DIST =				\
-	$(Data_DATA)
+SUBDIRS = actions status
 
 Datadir = $(datadir)/icons/hicolor/16x16/status
 
